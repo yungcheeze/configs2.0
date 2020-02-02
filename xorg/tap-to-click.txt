@@ -1,0 +1,4 @@
+- copy 70-synaptics.conf to /etc/X11/xorg.conf.d
+- tap to click options were
+	Option "TapButton1" "1"
+	Option "TapButton2" "3"
