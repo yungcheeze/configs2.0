@@ -1,0 +1,25 @@
+- default xorg configs
+/usr/share/X11/xorg.conf.d
+
+packages to install:
+- tmux
+- emacs
+- tex-live most
+
+doom:
+run doom install (auto select yes for all options)
+# clone doom.d
+# run doom refresh
+
+keyboard:
+# setxkbmap gb
+# setxkbmap -option ctrl:nocaps
+
+
+faster make:
+set /etc/makepkg.conf
+MAKEFLAGS="-j3"
+
+
+auto-set time using internet
+# timedatectl set-ntp true
