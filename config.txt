@@ -23,3 +23,6 @@ MAKEFLAGS="-j3"
 
 auto-set time using internet
 # timedatectl set-ntp true
+
+xmonad-packages
+- i3-lock-fancy-git
