@@ -81,7 +81,7 @@ myTwoPane = renamed [Replace "TwoPane"] $ spacing mySpacing $ TwoPane (3/100) (1
 -- Scratchpads:
 myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm]
     where
-    spawnTerm  = myTerminal ++  " -n scratchpad"
+    spawnTerm  = myTerminal ++  " --name scratchpad"
     findTerm   = resource =? "scratchpad"
     manageTerm =  customFloating $ W.RationalRect l t w h
                  where
