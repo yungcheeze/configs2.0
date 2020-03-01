@@ -121,6 +121,7 @@ myKeys =
   , ("M-c", goToBrowserWorkspace)
   , ("M-S-x", switchTopic myTopicConfig "extra")
   , ("M-a", currentTopicAction myTopicConfig)
+  , ("M-S-m", windows W.swapMaster) -- move focused window to master
   ]
 
 ------------------------------------------------------------------------
