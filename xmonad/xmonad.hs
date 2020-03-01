@@ -71,7 +71,7 @@ mySpacing = 3
 
 myLayoutHook = avoidStruts $ myLayouts
 
-myLayouts = myFull ||| myTile
+myLayouts = myFull ||| myTile ||| myTwoPane
 
 myTile = renamed [Replace "Tiled"] $ spacing mySpacing $ Tall 1 (3/100) (1/2)
 myFull = renamed [Replace "Full"] $ spacing mySpacing $ Full
