@@ -35,7 +35,7 @@ myBrowser = "chromium"
 myEditor = "emacs"
 myConfigsDir = "/home/ucizi/configs2.0"
 myLauncher = myConfigsDir ++ "/scripts/dmenu_recency"
-myStatusBar = myConfigsDir ++ "/config/polybar/launch.sh &"
+myStatusBar = "echo 'no status bar'"
 myWallpaperCmd = "echo 'no-wallpaper'"
 myModMask = mod4Mask
 
