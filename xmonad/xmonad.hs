@@ -143,7 +143,7 @@ removedKeys =
 myStartupHook = do
   spawnOnce myStatusBar
   -- spawnOnce "redshift &"
-  -- spawnOnce "compton -b &"
+  spawnOnce "compton -b &"
   -- spawnOnce "xbindkeys"
   spawnOnce "dropbox"
   spawnOnce myWallpaperCmd
