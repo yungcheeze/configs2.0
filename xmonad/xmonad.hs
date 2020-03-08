@@ -136,7 +136,7 @@ removedKeys =
   , "M-S-p" -- dmenu
   , "M-S-w" , "M-S-e" , "M-S-r" -- move window to monitor
   , "M-w" , "M-e" , "M-r" -- switch to monitor
-  ]
+  ] ++ ["M-" ++ k | k <- map show [0..9]] ++ ["M-S-" ++ k | k <- map show [0..9]]
 
 
 ------------------------------------------------------------------------
