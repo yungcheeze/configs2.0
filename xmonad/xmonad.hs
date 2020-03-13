@@ -27,6 +27,7 @@ import XMonad.Actions.CycleWS (nextScreen, shiftNextScreen)
 import XMonad.Actions.WindowBringer (gotoMenu)
 import XMonad.Actions.TopicSpace
 import XMonad.Actions.DynamicWorkspaceGroups
+import XMonad.Actions.Commands (workspaceCommands, runCommand)
 
 ------------------------------------------------------------------------
 -- General:
@@ -110,6 +111,7 @@ myKeys =
   , ("M-;", namedScratchpadAction myScratchPads "terminal")
   , ("M-x", spawn myLauncher)
   , ("M-'", gotoMenu)
+  , ("M-#", workspaceCommands >>= runCommand)
   , ("C-M1-<Delete>", io exitSuccess)
   , ("M-S-c", spawn myBrowser)
   , ("M-S-e", spawn myEditor)
