@@ -151,3 +151,7 @@ export LESS_TERMCAP_so=$'\E[01;44;33m' # begin reverse video
 export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
 export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
+
+if [ "$TERM" != "linux" ]; then
+    source ~/configs2.0/pureline/pureline ~/configs2.0/pureline.conf
+fi
