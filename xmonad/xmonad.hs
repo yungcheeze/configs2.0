@@ -105,7 +105,12 @@ myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
     , className =? "Gimp"           --> doFloat
     , resource  =? "desktop_window" --> doIgnore
-    , resource  =? "kdesktop"       --> doIgnore ]
+    , resource  =? "kdesktop"       --> doIgnore
+    , title     =? "Rest break"     --> doIgnore
+    , title     =? "Micro-break"     --> doIgnore
+    , title     =? "Workrave"       --> doIgnore
+    , stringProperty "WM_NAME" =? "Microsoft Teams Notification" --> composeAll [doFloat, doIgnore]
+    ]
 
 ------------------------------------------------------------------------
 -- Log Hook:
