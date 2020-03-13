@@ -44,7 +44,7 @@ myModMask = mod4Mask
 -- Topics:
 myTopics :: [Topic]
 myTopics =
-  ["editor", "browser", "extra"]
+  ["editor", "browser", "extra", "chat"]
 
 myTopicConfig :: TopicConfig
 myTopicConfig = def
@@ -53,8 +53,16 @@ myTopicConfig = def
     [ ("editor", spawn myEditor)
     , ("browser", spawn myBrowser)
     , ("extra", spawn myTerminal)
+    , ("chat", chatTopicAction)
     ]
   }
+
+chatTopicAction = do
+  spawn "teams"
+  spawn "chromium --app=https://outlook.office365.com"
+
+goToChatWorkspace = do
+  switchTopic myTopicConfig "chat"
 
 goToEditorWorkspace = do
   switchTopic myTopicConfig "editor"
@@ -121,6 +129,7 @@ myKeys =
   , ("M-C-l", spawn "i3lock-fancy-rapid 5 1")
   , ("M-e", goToEditorWorkspace)
   , ("M-c", goToBrowserWorkspace)
+  , ("M-s", goToChatWorkspace)
   , ("M-S-x", switchTopic myTopicConfig "extra")
   , ("M-a", currentTopicAction myTopicConfig)
   , ("M-S-m", windows W.swapMaster) -- move focused window to master
