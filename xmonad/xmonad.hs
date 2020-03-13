@@ -142,15 +142,7 @@ removedKeys =
 ------------------------------------------------------------------------
 -- Startup:
 myStartupHook = do
-  spawnOnce myStatusBar
-  -- spawnOnce "redshift &"
-  spawnOnce "compton -b &"
-  -- spawnOnce "xbindkeys"
-  spawnOnce "dropbox"
-  spawnOnce myWallpaperCmd
-  spawnOnce "setxkbmap gb"
-  spawnOnce "setxkbmap -option ctrl:nocaps"
-
+  spawnOnce "echo 'do startup stuff here'"
 ------------------------------------------------------------------------
 -- Main:
 myConfig = def

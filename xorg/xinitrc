@@ -1,0 +1,6 @@
+/home/ucizi/configs2.0/config/polybar/launch.sh &
+redshift &
+setxkbmap gb
+setxkbmap -option ctrl:nocaps
+compton -b
+dropbox &
