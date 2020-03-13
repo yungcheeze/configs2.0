@@ -1,0 +1,5 @@
+#!/bin/bash
+
+JSON_FILE=$1
+
+jq -C . "$JSON_FILE" | less -r

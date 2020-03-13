@@ -1,0 +1,10 @@
+#!/bin/bash
+
+VERSION="3.5.2"
+
+if [ $# -gt 0 ]
+   then VERSION=$1
+fi
+
+pipenv install --python "$VERSION" --dev pytest
+pipenv run pip install "python-language-server[all]" pyls-mypy

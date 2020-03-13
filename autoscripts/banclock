@@ -1,0 +1,4 @@
+#!/bin/bash
+
+BAN="toilet -f 'ANSI Regular' | lolcat"
+watch --color -t -n 1 "date '+%b %d' | $BAN && date '+%H:%M:%S' | $BAN"

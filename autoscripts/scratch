@@ -1,0 +1,14 @@
+#!/bin/bash
+
+
+SCRATCH_FOLDER="${HOME}/scratch"
+SCRATCH_FILE="$SCRATCH_FOLDER/$1"
+EDITOR_CMD="emacsclient -t"
+
+if [[ -f $SCRATCH_FILE ]]; then
+    $EDITOR_CMD $SCRATCH_FILE
+else
+    touch $SCRATCH_FILE
+    $EDITOR_CMD $SCRATCH_FILE
+fi
+

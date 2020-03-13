@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ -z "$1" ]
+then
+    SESSION_NAME=${PWD##*/}
+else
+    SESSION_NAME=$1
+fi
+
+tmux new -s $SESSION_NAME -d
+tmux switch -t $SESSION_NAME

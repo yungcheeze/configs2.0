@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# USAGE:
+#$ . activate
+# dot is required to prevent current shell from forking a
+# subshell which is what we want (i.e.the virtualenv should be activated in
+# current shell)
+
+if [ $# -eq 0 ];then
+    VENV_ROOT="$(pwd)/.venv"
+else
+    VENV_ROOT=$1
+fi
+
+source "$VENV_ROOT/bin/activate"

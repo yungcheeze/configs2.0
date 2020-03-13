@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ -z "$1" ]
+then
+    DATE_STRING="now"
+else
+    DATE_STRING=$1
+fi
+
+# print date string in seconds
+date -d $DATE_STRING +"%s"

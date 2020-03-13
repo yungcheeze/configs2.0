@@ -1,0 +1,9 @@
+#!/bin/bash
+
+export ANDROID_HOME=$HOME/Android/Sdk
+PATH=$PATH:$ANDROID_HOME/tools/bin
+PATH=$PATH:$ANDROID_HOME/emulator
+PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH
+
+# Fixes sdkmanager error with java versions higher than java 8

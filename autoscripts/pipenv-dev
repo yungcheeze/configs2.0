@@ -1,0 +1,6 @@
+#!/bin/bash
+
+DEV_TEMPLATE=~/configs/scripts/Pipfile.dev
+DESTINATION=$(pwd)/Pipfile
+
+rsync --ignore-existing $DEV_TEMPLATE $DESTINATION
