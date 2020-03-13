@@ -155,3 +155,5 @@ export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 if [ "$TERM" != "linux" ]; then
     source ~/configs2.0/pureline/pureline ~/configs2.0/pureline.conf
 fi
+
+source ~/configs2.0/commacd.sh
