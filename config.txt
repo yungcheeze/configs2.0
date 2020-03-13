@@ -5,7 +5,9 @@ packages to install:
 - tmux
 - emacs
 - tex-live most
-
+- redshift
+- workrave
+- hstr
 doom:
 run doom install (auto select yes for all options)
 # clone doom.d
