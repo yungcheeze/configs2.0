@@ -4,3 +4,4 @@ setxkbmap gb
 setxkbmap -option ctrl:nocaps
 compton -b
 dropbox &
+workrave &
