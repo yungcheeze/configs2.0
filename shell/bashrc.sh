@@ -165,3 +165,4 @@ export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
 if [[ $- =~ .*i.* ]]; then bind '"\er": "\C-a hstr -- \C-j"'; fi
 
 
+alias fcd="fasd_cd -id"
