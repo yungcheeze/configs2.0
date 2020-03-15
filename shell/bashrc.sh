@@ -172,3 +172,5 @@ if [[ $- =~ .*i.* ]]; then bind '"\er": "\C-a hstr -- \C-j"'; fi
 
 
 source /home/ucizi/.config/broot/launcher/bash/br
+
+eval "$(pyenv init -)"
