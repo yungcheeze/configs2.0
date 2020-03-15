@@ -26,3 +26,14 @@ PATH="$PATH:$AUTOSCRIPT_DIR"
 export PATH
 
 source /home/ucizi/.config/broot/launcher/bash/br
+
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+fi
+
+if [ "$TERM" != "linux" ]; then
+    source ~/configs2.0/pureline/pureline ~/configs2.0/pureline.conf
+fi
+
+
+source ~/configs2.0/commacd.sh

@@ -152,12 +152,6 @@ export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
 export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
-if [ "$TERM" != "linux" ]; then
-    source ~/configs2.0/pureline/pureline ~/configs2.0/pureline.conf
-fi
-
-source ~/configs2.0/commacd.sh
-
 # HSTR configuration - add this to ~/.bashrc
 alias hh=hstr                    # hh to be alias for hstr
 export HSTR_CONFIG=hicolor       # get more colors
@@ -171,6 +165,3 @@ export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
 if [[ $- =~ .*i.* ]]; then bind '"\er": "\C-a hstr -- \C-j"'; fi
 
 
-source /home/ucizi/.config/broot/launcher/bash/br
-
-eval "$(pyenv init -)"
