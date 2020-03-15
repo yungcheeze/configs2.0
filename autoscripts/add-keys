@@ -1,3 +1,3 @@
 #!/bin/bash
 
-eval `keychain --eval --agents ssh github_yungcheeze_rsa bitbucket_rsa bitbucket_turing_rsa gitlab_rsa`
+eval `keychain --eval --agents ssh id_rsa`
