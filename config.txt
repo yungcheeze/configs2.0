@@ -29,3 +29,8 @@ auto-set time using internet
 xmonad-packages
 - i3-lock-fancy-git
 - compton
+
+others:
+- install intel-ucode
+- install firewall
+- remove grub delay
