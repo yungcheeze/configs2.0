@@ -165,4 +165,25 @@ export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
 if [[ $- =~ .*i.* ]]; then bind '"\er": "\C-a hstr -- \C-j"'; fi
 
 
+source /home/ucizi/.config/broot/launcher/bash/br
+
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+fi
+
+if [ "$TERM" != "linux" ]; then
+    source ~/configs2.0/pureline/pureline ~/configs2.0/pureline.conf
+fi
+
+
+source ~/configs2.0/commacd.sh
+
+fasd_cache="$HOME/.fasd-init-bash"
+if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+  fasd --init posix-alias bash-hook bash-ccomp bash-ccomp-install >| "$fasd_cache"
+fi
+source "$fasd_cache"
+unset fasd_cache
 alias fcd="fasd_cd -id"
+
+eval `keychain --quiet --eval --agents ssh id_rsa`
