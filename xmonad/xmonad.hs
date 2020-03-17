@@ -21,6 +21,7 @@ import XMonad.Util.NamedScratchpad ( NamedScratchpad(NS), customFloating, namedS
 -- Hooks
 import XMonad.Hooks.ManageDocks (avoidStruts, docks)
 import XMonad.Hooks.FadeInactive (fadeInactiveLogHook)
+import XMonad.Hooks.SetWMName(setWMName)
 
 -- Actions
 import XMonad.Actions.CycleWS (nextScreen, shiftNextScreen)
@@ -29,6 +30,7 @@ import XMonad.Actions.TopicSpace
 import XMonad.Actions.DynamicWorkspaceGroups
 import XMonad.Actions.Commands (workspaceCommands, runCommand)
 
+import XMonad.Config.Gnome 
 ------------------------------------------------------------------------
 -- General:
 myTerminal = "kitty"
@@ -158,10 +160,11 @@ removedKeys =
 ------------------------------------------------------------------------
 -- Startup:
 myStartupHook = do
+  -- setWMName "LG3D" -- hack to make Java GUI apps work. Xmonad isn't on the whitelist (-_-)
   spawnOnce "echo 'do startup stuff here'"
 ------------------------------------------------------------------------
 -- Main:
-myConfig = def
+myConfig = gnomeConfig
   { terminal    = myTerminal
   , workspaces = myTopics
   , modMask     = mod4Mask
