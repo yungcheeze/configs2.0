@@ -30,7 +30,7 @@ import XMonad.Actions.TopicSpace
 import XMonad.Actions.DynamicWorkspaceGroups
 import XMonad.Actions.Commands (workspaceCommands, runCommand)
 
-import XMonad.Config.Gnome 
+import XMonad.Config.Xfce (xfceConfig)
 ------------------------------------------------------------------------
 -- General:
 myTerminal = "kitty"
@@ -162,9 +162,10 @@ removedKeys =
 myStartupHook = do
   -- setWMName "LG3D" -- hack to make Java GUI apps work. Xmonad isn't on the whitelist (-_-)
   spawnOnce "echo 'do startup stuff here'"
+
 ------------------------------------------------------------------------
 -- Main:
-myConfig = gnomeConfig
+myConfig = xfceConfig
   { terminal    = myTerminal
   , workspaces = myTopics
   , modMask     = mod4Mask
