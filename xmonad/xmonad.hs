@@ -22,6 +22,7 @@ import XMonad.Util.NamedScratchpad ( NamedScratchpad(NS), customFloating, namedS
 import XMonad.Hooks.ManageDocks (avoidStruts, docks)
 import XMonad.Hooks.FadeInactive (fadeInactiveLogHook)
 import XMonad.Hooks.SetWMName(setWMName)
+import XMonad.Hooks.EwmhDesktops (ewmhDesktopsStartup, ewmhDesktopsEventHook, ewmhDesktopsLogHook)
 
 -- Actions
 import XMonad.Actions.CycleWS (nextScreen, shiftNextScreen)
@@ -171,8 +172,8 @@ myConfig = xfceConfig
   , modMask     = mod4Mask
   , borderWidth = 0
   , layoutHook = myLayoutHook
-  , startupHook = myStartupHook
   , manageHook = myManageHook <+> namedScratchpadManageHook myScratchPads
+  , startupHook = ewmhDesktopsStartup <+> myStartupHook
   , logHook = myLogHook
   }
 
