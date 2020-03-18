@@ -19,7 +19,7 @@ import XMonad.Layout.Dishes
 import XMonad.Layout.TwoPane
 import XMonad.Util.NamedScratchpad ( NamedScratchpad(NS), customFloating, namedScratchpadManageHook, namedScratchpadAction)
 -- Hooks
-import XMonad.Hooks.ManageDocks (avoidStruts, docks)
+import XMonad.Hooks.ManageDocks (ToggleStruts(..))
 import XMonad.Hooks.FadeInactive (fadeInactiveLogHook)
 import XMonad.Hooks.SetWMName(setWMName)
 import XMonad.Hooks.EwmhDesktops (ewmhDesktopsStartup, ewmhDesktopsEventHook, ewmhDesktopsLogHook)
@@ -136,6 +136,7 @@ myKeys =
   , ("M-S-o", shiftNextScreen)
   , ("M-S-q", kill)
   , ("M-C-l", spawn "i3lock-fancy-rapid 5 1")
+  , ("M-S-6", sendMessage ToggleStruts)
   , ("M-e", goToEditorWorkspace)
   , ("M-c", goToBrowserWorkspace)
   , ("M-s", goToChatWorkspace)
