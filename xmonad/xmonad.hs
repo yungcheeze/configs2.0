@@ -31,7 +31,7 @@ import XMonad.Actions.TopicSpace
 import XMonad.Actions.DynamicWorkspaceGroups
 import XMonad.Actions.Commands (workspaceCommands, runCommand)
 
-import XMonad.Config.Xfce (xfceConfig)
+import XMonad.Config.Xfce (xfceConfig, desktopLayoutModifiers)
 ------------------------------------------------------------------------
 -- General:
 myTerminal = "kitty"
@@ -81,7 +81,7 @@ goToExtraWorkspace = do
 -- Layouts:
 mySpacing = 3
 
-myLayoutHook = avoidStruts $ myLayouts
+myLayoutHook = myLayouts
 
 myLayouts = myFull ||| myTile ||| myTwoPane
 
@@ -172,12 +172,12 @@ myConfig = xfceConfig
   , workspaces = myTopics
   , modMask     = mod4Mask
   , borderWidth = 0
-  , layoutHook = myLayoutHook
-  , manageHook = myManageHook <+> namedScratchpadManageHook myScratchPads
-  , startupHook = ewmhDesktopsStartup <+> myStartupHook
+  , layoutHook = desktopLayoutModifiers $ myLayoutHook
+  , manageHook = manageHook xfceConfig <+> myManageHook <+> namedScratchpadManageHook myScratchPads
+  , startupHook = startupHook xfceConfig <+> myStartupHook
   , logHook = myLogHook
   }
 
-main = xmonad $ docks myConfig
+main = xmonad $ myConfig
   `removeKeysP` removedKeys
   `additionalKeysP` myKeys
