@@ -34,3 +34,8 @@ others:
 - install intel-ucode
 - install firewall
 - remove grub delay
+
+turn off bell:
+/etc/modprobe.d/blacklist
+
+blacklist pcspkr
