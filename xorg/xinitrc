@@ -2,6 +2,6 @@
 redshift &
 setxkbmap gb
 setxkbmap -option ctrl:nocaps
-# compton -b
+picom -b
 # dropbox &
-workrave &
+# workrave &
