@@ -39,3 +39,7 @@ turn off bell:
 /etc/modprobe.d/blacklist
 
 blacklist pcspkr
+
+docker_compose:
+add completions
+sudo curl -L https://raw.githubusercontent.com/docker/compose/1.25.4/contrib/completion/bash/docker-compose -o /etc/bash_completion.d/docker-compose
