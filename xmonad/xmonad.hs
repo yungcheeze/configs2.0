@@ -129,7 +129,6 @@ myKeys =
   , ("M-x", spawn myLauncher)
   , ("M-'", gotoMenu)
   , ("M-#", workspaceCommands >>= runCommand)
-  , ("C-M1-<Delete>", io exitSuccess)
   , ("M-S-c", spawn myBrowser)
   , ("M-S-e", spawn myEditor)
   , ("M-o", nextScreen)
