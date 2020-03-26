@@ -43,6 +43,8 @@ map S !$SHELL
 map x $$f
 map X !$f
 
+map e $/home/$USER/.config/lf/emc $f
+
 # dedicated keys for file opener actions
 map o &mimeopen $f
 map O $mimeopen --ask $f
@@ -143,8 +145,9 @@ map gf push :fasd_cd<space>
 # use either file extensions and/or mime types here. Below uses an editor for
 # text files and a file opener for the rest.
 cmd open ${{
+    IFS="";
     case $(file --mime-type $f -b) in
-        text/*) $EDITOR $fx;;
+        text/*) /home/$USER/.config/lf/emc $fx;;
         *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
     esac
 }}
