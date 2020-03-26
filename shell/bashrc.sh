@@ -3,10 +3,10 @@ bind 'TAB:menu-complete'
 
 alias to-clip="xclip -selection c"
 
-export EDITOR="emacs --no-window-system"
+export EDITOR="emacsclient --tty --socket-name=terminal"
 export SUDO_EDITOR="$EDITOR"
-export ALTERNATE_EDITOR="emacs"
-export VISUAL="emacs"
+export ALTERNATE_EDITOR=""
+export VISUAL="emacsclient --create-frame --socket-name=gui"
 alias e="$VISUAL"                      # used to be "emacs -nw"
 alias et="$EDITOR"                      # used to be "emacs -nw"
 
