@@ -36,8 +36,8 @@ import XMonad.Config.Xfce (xfceConfig, desktopLayoutModifiers)
 -- General:
 myTerminal = "kitty"
 myBrowser = "chromium"
-myEditor = "emacs"
 myConfigsDir = "/home/ucizi/configs2.0"
+myEditor = myConfigsDir ++ "/xmonad/visual-editor.sh"
 myLauncher = myConfigsDir ++ "/scripts/dmenu_recency"
 myStatusBar = myConfigsDir ++ "/config/polybar/launch.sh &"
 myWallpaperCmd = "echo 'no-wallpaper'"
