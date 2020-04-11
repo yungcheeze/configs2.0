@@ -113,7 +113,7 @@ myManageHook = composeAll
     , title     =? "Micro-break"     --> doIgnore
     , title     =? "Workrave"       --> doIgnore
     , className =? "microsoft teams - preview" --> doShift "chat"
-    , stringProperty "WM_NAME" =? "Microsoft Teams Notification" --> composeAll [doFloat, doIgnore]
+    , stringProperty "WM_NAME" =? "Microsoft Teams Notification" --> doFloat
     , stringProperty "WM_NAME" =? "Whisker Menu" --> doFloat
     ]
 
