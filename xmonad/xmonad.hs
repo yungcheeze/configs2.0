@@ -10,7 +10,7 @@ import XMonad.Util.SpawnOnce (spawnOnce)
 
 -- Layouts Modifiers
 import XMonad.Layout.Renamed (renamed, Rename(CutWordsLeft, Replace))
-import XMonad.Layout.Spacing (spacing)
+import XMonad.Layout.Spacing (spacing, toggleSmartSpacing)
 import XMonad.Layout.NoBorders (smartBorders)
 
 --Layouts
@@ -89,6 +89,10 @@ myTile = renamed [Replace "Tiled"] $ spacing mySpacing $ Tall 1 (3/100) (1/2)
 myFull = renamed [Replace "Full"] $ spacing mySpacing $ Full
 myTwoPane = renamed [Replace "TwoPane"] $ spacing mySpacing $ TwoPane (3/100) (1/2)
 
+toggleFullScreen = do
+  sendMessage ToggleStruts
+  toggleSmartSpacing
+
 ------------------------------------------------------------------------
 -- Scratchpads:
 myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm]
@@ -136,7 +140,7 @@ myKeys =
   , ("M-S-o", shiftNextScreen)
   , ("M-S-q", kill)
   , ("M-C-l", spawn "i3lock-fancy-rapid 5 1")
-  , ("M-S-6", sendMessage ToggleStruts)
+  , ("M-S-6", toggleFullScreen)
   , ("M-e", goToEditorWorkspace)
   , ("M-c", goToBrowserWorkspace)
   , ("M-s", goToChatWorkspace)
