@@ -52,7 +52,7 @@ myTopics =
 myTopicConfig :: TopicConfig
 myTopicConfig = def
   { defaultTopic = "editor"
-  , topicActions = M.fromList $
+  , topicActions = M.fromList 
     [ ("editor", spawn myEditor)
     , ("browser", spawn myBrowser)
     , ("extra", spawn myTerminal)
@@ -64,16 +64,13 @@ chatTopicAction = do
   spawn "teams"
   spawn "chromium --app=https://outlook.office365.com"
 
-goToChatWorkspace = do
-  switchTopic myTopicConfig "chat"
+goToChatWorkspace = switchTopic myTopicConfig "chat"
 
-goToEditorWorkspace = do
-  switchTopic myTopicConfig "editor"
+goToEditorWorkspace = switchTopic myTopicConfig "editor"
 
-goToBrowserWorkspace = do
-  switchTopic myTopicConfig "browser"
-goToExtraWorkspace = do
-  switchTopic myTopicConfig "extra"
+goToBrowserWorkspace = switchTopic myTopicConfig "browser"
+
+goToExtraWorkspace = switchTopic myTopicConfig "extra"
 
 
 
@@ -195,10 +192,8 @@ removedKeys =
 
 ------------------------------------------------------------------------
 -- Startup:
-myStartupHook = do
-  -- setWMName "LG3D" -- hack to make Java GUI apps work. Xmonad isn't on the whitelist (-_-)
-  spawnOnce "echo 'do startup stuff here'"
-
+myStartupHook = return ()
+--   setWMName "LG3D" -- hack to make Java GUI apps work. Xmonad isn't on the whitelist (-_-)
 ------------------------------------------------------------------------
 -- Main:
 myConfig = xfceConfig
@@ -206,7 +201,7 @@ myConfig = xfceConfig
   , workspaces = myTopics
   , modMask     = mod4Mask
   , borderWidth = 0
-  , layoutHook = desktopLayoutModifiers $ myLayoutHook
+  , layoutHook = desktopLayoutModifiers myLayoutHook
   , manageHook = manageHook xfceConfig <+> myManageHook <+> namedScratchpadManageHook myScratchPads
   , startupHook = startupHook xfceConfig <+> myStartupHook
   , logHook = myLogHook
