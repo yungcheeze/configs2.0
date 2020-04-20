@@ -82,7 +82,7 @@ myLayoutHook =
   spacingRaw False (Border 0 0 0 0) False (Border 3 3 3 3) True myLayouts
 
 
-myLayouts = Tall 1 (3/100) (1/2) ||| Full ||| TwoPane (3/100) (1/2)
+myLayouts =  Full ||| Tall 1 (3/100) (1/2) ||| TwoPane (3/100) (1/2)
 
 toggleFullScreen = do
   sendMessage ToggleStruts
