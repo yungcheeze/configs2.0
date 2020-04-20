@@ -10,7 +10,7 @@ import XMonad.Util.SpawnOnce (spawnOnce)
 
 -- Layouts Modifiers
 import XMonad.Layout.Renamed (renamed, Rename(CutWordsLeft, Replace))
-import XMonad.Layout.Spacing (spacing, toggleSmartSpacing)
+import XMonad.Layout.Spacing (spacingRaw, toggleSmartSpacing, Border(..))
 import XMonad.Layout.NoBorders (smartBorders)
 
 --Layouts
@@ -81,13 +81,11 @@ goToExtraWorkspace = do
 -- Layouts:
 mySpacing = 3
 
-myLayoutHook = myLayouts
+myLayoutHook =
+  spacingRaw False (Border 0 0 0 0) False (Border 3 3 3 3) True myLayouts
 
-myLayouts = myFull ||| myTile ||| myTwoPane
 
-myTile = renamed [Replace "Tiled"] $ spacing mySpacing $ Tall 1 (3/100) (1/2)
-myFull = renamed [Replace "Full"] $ spacing mySpacing $ Full
-myTwoPane = renamed [Replace "TwoPane"] $ spacing mySpacing $ TwoPane (3/100) (1/2)
+myLayouts = Tall 1 (3/100) (1/2) ||| Full ||| TwoPane (3/100) (1/2)
 
 toggleFullScreen = do
   sendMessage ToggleStruts
