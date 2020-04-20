@@ -128,26 +128,54 @@ myLogHook = fadeInactiveLogHook fadeAmount
 ------------------------------------------------------------------------
 -- Keys:
 myKeys =
-  [ ("M-C-r", spawn "xmonad --recompile; xmonad --restart")
-  , ("M-<Return>", spawn myTerminal)
-  , ("M-;", namedScratchpadAction myScratchPads "terminal")
+  [
+    -- restart
+    ("M-C-r", spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi") -- %! Restart xmonad
+    -- spawning commands
+  ,("M-<Return>", spawn myTerminal)
   , ("M-x", spawn myLauncher)
+  , ("M-;", namedScratchpadAction myScratchPads "terminal")
+
+  --workspaces
+  -- browser
+  , ("M-c", goToBrowserWorkspace)
+  , ("M-S-c", spawn myBrowser)
+  -- editor
+  , ("M-e", goToEditorWorkspace)
+  , ("M-S-e", spawn myEditor)
+  -- chat
+  , ("M-s", goToChatWorkspace)
+  -- extra
+  , ("M-S-x", switchTopic myTopicConfig "extra")
+  , ("M-a", currentTopicAction myTopicConfig)
+
+  -- workspace manipulation
   , ("M-'", gotoMenu)
   , ("M-#", workspaceCommands >>= runCommand)
-  , ("M-S-c", spawn myBrowser)
-  , ("M-S-e", spawn myEditor)
-  , ("M-o", nextScreen)
-  , ("M-S-o", shiftNextScreen)
+
+  -- window maninpulation
   , ("M-S-q", kill)
   , ("M-C-l", spawn "i3lock-fancy-rapid 5 1")
   , ("M-C-f", toggleFullScreen)
   , ("M-C-b", toggleSmartSpacing)
-  , ("M-e", goToEditorWorkspace)
-  , ("M-c", goToBrowserWorkspace)
-  , ("M-s", goToChatWorkspace)
-  , ("M-S-x", switchTopic myTopicConfig "extra")
-  , ("M-a", currentTopicAction myTopicConfig)
+  , ("M-<Space>", sendMessage NextLayout)
+  -- , ("M-S-<Space>", setLayout $ XMonad.layoutHook conf) -- reset layout (couldn't get it to work)
+  , ("M-n", refresh)
+  , ("M-j", windows W.focusDown) -- %! Move focus to the next window
+  , ("M-k", windows W.focusUp  ) -- %! Move focus to the previous window
+  , ("M-m", windows W.focusMaster  ) -- %! Move focus to the master window
+  , ("M-S-j", windows W.swapDown  ) -- %! Swap the focused window with the next window
+  , ("M-S-k", windows W.swapUp    ) -- %! Swap the focused window with the previous window
   , ("M-S-m", windows W.swapMaster) -- move focused window to master
+  , ("M-h", sendMessage Shrink) -- %! Shrink the master area
+  , ("M-l", sendMessage Expand) -- %! Expand the master area
+  , ("M-t", withFocused $ windows . W.sink) -- %! Push window back into tiling
+  , ("M-,", sendMessage (IncMasterN 1)) -- %! Increment the number of windows in the master area
+  , ("M-.", sendMessage (IncMasterN (-1))) -- %! Deincrement the number of windows in the master area
+
+  -- multi-monitor
+  , ("M-o", nextScreen)
+  , ("M-S-o", shiftNextScreen)
   ]
 
 ------------------------------------------------------------------------
@@ -158,10 +186,12 @@ removedKeys =
   , "M-S-c" -- close window
   , "M-<Tab>" -- cycle window forward
   , "M-S-<Tab>" -- cycle window backward
+  , "M-S-/" --help command
   , "M-p" -- dmenu
   , "M-S-p" -- dmenu
   , "M-S-w" , "M-S-e" , "M-S-r" -- move window to monitor
   , "M-w" , "M-e" , "M-r" -- switch to monitor
+  , "M-b" --toggle struts
   ] ++ ["M-" ++ k | k <- map show [0..9]] ++ ["M-S-" ++ k | k <- map show [0..9]]
 
 
