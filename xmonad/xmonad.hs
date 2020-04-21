@@ -30,6 +30,7 @@ import XMonad.Actions.WindowBringer (gotoMenu)
 import XMonad.Actions.TopicSpace
 import XMonad.Actions.DynamicWorkspaceGroups
 import XMonad.Actions.Commands (workspaceCommands, runCommand)
+import           XMonad.Actions.CopyWindow      ( copyToAll )
 
 import XMonad.Config.Xfce (xfceConfig, desktopLayoutModifiers)
 ------------------------------------------------------------------------
@@ -112,7 +113,7 @@ myManageHook = composeAll
     , title     =? "Micro-break"     --> doIgnore
     , title     =? "Workrave"       --> doIgnore
     , className =? "microsoft teams - preview" --> doShift "chat"
-    , stringProperty "WM_NAME" =? "Microsoft Teams Notification" --> doFloat
+    , stringProperty "WM_NAME" =? "Microsoft Teams Notification" --> doFloat <+> doIgnore
     , stringProperty "WM_NAME" =? "Whisker Menu" --> doFloat
     ]
 
