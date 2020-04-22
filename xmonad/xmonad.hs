@@ -126,7 +126,7 @@ myLogHook = fadeInactiveLogHook fadeAmount
 myKeys =
   [
     -- restart
-    ("M-C-r", spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi") -- %! Restart xmonad
+    ("M-C-r", spawn "if type xmonad; then xmonad --recompile && xmonad --restart && notify-send 'XMonad Restarted'; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi") -- %! Restart xmonad
     -- spawning commands
   ,("M-<Return>", spawn myTerminal)
   , ("M-x", spawn myLauncher)
