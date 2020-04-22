@@ -65,15 +65,8 @@ chatTopicAction = do
   spawn "teams"
   spawn "chromium --app=https://outlook.office365.com"
 
-goToChatWorkspace = switchTopic myTopicConfig "chat"
-
-goToEditorWorkspace = switchTopic myTopicConfig "editor"
-
-goToBrowserWorkspace = switchTopic myTopicConfig "browser"
-
-goToExtraWorkspace = switchTopic myTopicConfig "extra"
-
-
+goTo :: String -> X ()
+goTo = switchTopic myTopicConfig
 
 ------------------------------------------------------------------------
 -- Layouts:
@@ -136,18 +129,18 @@ myKeys =
 
   --workspaces
   -- browser
-  , ("M-c", goToBrowserWorkspace)
+  , ("M-c", goTo "browser")
   , ("M-C-m M-c", shiftTo "browser")
   , ("M-S-c", spawn myBrowser)
   -- editor
-  , ("M-e", goToEditorWorkspace)
+  , ("M-e", goTo "editor")
   , ("M-C-m M-e", shiftTo "editor")
   , ("M-S-e", spawn myEditor)
   -- chat
-  , ("M-s", goToChatWorkspace)
+  , ("M-s", goTo "chat")
   , ("M-C-m M-s", shiftTo "chat")
   -- extra
-  , ("M-1", switchTopic myTopicConfig "extra")
+  , ("M-1", goTo "extra")
   , ("M-C-m M-1", shiftTo "extra")
   , ("M-a", currentTopicAction myTopicConfig)
 
