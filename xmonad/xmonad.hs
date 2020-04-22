@@ -136,14 +136,18 @@ myKeys =
   --workspaces
   -- browser
   , ("M-c", goToBrowserWorkspace)
+  , ("M-C-m M-c", shiftTo "browser")
   , ("M-S-c", spawn myBrowser)
   -- editor
   , ("M-e", goToEditorWorkspace)
+  , ("M-C-m M-e", shiftTo "editor")
   , ("M-S-e", spawn myEditor)
   -- chat
   , ("M-s", goToChatWorkspace)
+  , ("M-C-m M-s", shiftTo "chat")
   -- extra
   , ("M-1", switchTopic myTopicConfig "extra")
+  , ("M-C-m M-1", shiftTo "extra")
   , ("M-a", currentTopicAction myTopicConfig)
 
   -- workspace manipulation
@@ -175,6 +179,8 @@ myKeys =
   , ("M-S-o", shiftNextScreen)
   ]
 
+shiftTo :: String -> X ()
+shiftTo = windows . W.shift
 ------------------------------------------------------------------------
 -- Keys:
 removedKeys =
