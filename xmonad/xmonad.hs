@@ -115,6 +115,7 @@ myManageHook = composeAll
     , className =? "microsoft teams - preview" --> doShift "chat"
     , stringProperty "WM_NAME" =? "Microsoft Teams Notification" --> doFloat <+> doIgnore
     , stringProperty "WM_NAME" =? "Whisker Menu" --> doFloat
+    , stringProperty "WM_NAME" =? "Volume Control" --> customFloating (W.RationalRect (2/3) (4/100) (1/3) (6/10))
     ]
 
 ------------------------------------------------------------------------
