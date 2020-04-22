@@ -48,7 +48,7 @@ myModMask = mod4Mask
 -- Topics:
 myTopics :: [Topic]
 myTopics =
-  ["editor", "browser", "extra", "chat"]
+  ["editor", "browser", "extra", "chat", "music"]
 
 myTopicConfig :: TopicConfig
 myTopicConfig = def
@@ -58,6 +58,7 @@ myTopicConfig = def
     , ("browser", spawn myBrowser)
     , ("extra", spawn myTerminal)
     , ("chat", chatTopicAction)
+    , ("music", spawn "spotify")
     ]
   }
 
@@ -142,8 +143,12 @@ myKeys =
   -- extra
   , ("M-1", goTo "extra")
   , ("M-C-m M-1", shiftTo "extra")
+  -- music
+  , ("M-2", goTo "music")
+  , ("M-C-m M-2", shiftTo "music")
+  -- workspace action
   , ("M-a", currentTopicAction myTopicConfig)
-
+  
   -- workspace manipulation
   , ("M-'", gotoMenu)
   , ("M-#", workspaceCommands >>= runCommand)
