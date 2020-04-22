@@ -5,7 +5,10 @@ import qualified XMonad.StackSet as W
 import qualified Data.Map as M
 
 -- Utilities
-import XMonad.Util.EZConfig (additionalKeysP, removeKeysP)
+import           XMonad.Util.EZConfig           ( additionalKeysP
+                                                , removeKeysP
+                                                , mkKeymap
+                                                )
 import XMonad.Util.SpawnOnce (spawnOnce)
 
 -- Layouts Modifiers
@@ -118,7 +121,8 @@ myLogHook = fadeInactiveLogHook fadeAmount
     where fadeAmount = 0.9
 ------------------------------------------------------------------------
 -- Keys:
-myKeys =
+myKeys conf =
+  mkKeymap conf
   [
     -- restart
     ("M-C-r", spawn "if type xmonad; then xmonad --recompile && xmonad --restart && notify-send 'XMonad Restarted'; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi") -- %! Restart xmonad
@@ -127,6 +131,7 @@ myKeys =
   , ("M-x", spawn myLauncher)
   , ("M-;", namedScratchpadAction myScratchPads "terminal")
   , ("M-C-<F8>", spawn "pavucontrol")
+  , ("M-S-<F8>", spawn "pavucontrol")
 
   --workspaces
   -- browser
@@ -159,7 +164,7 @@ myKeys =
   , ("M-C-f", toggleFullScreen)
   , ("M-C-b", toggleSmartSpacing)
   , ("M-<Space>", sendMessage NextLayout)
-  -- , ("M-S-<Space>", setLayout $ XMonad.layoutHook conf) -- reset layout (couldn't get it to work)
+  , ("M-S-<Space>", setLayout $ XMonad.layoutHook conf) -- reset layout
   , ("M-n", refresh)
   , ("M-j", windows W.focusDown) -- %! Move focus to the next window
   , ("M-k", windows W.focusUp  ) -- %! Move focus to the previous window
@@ -180,22 +185,6 @@ myKeys =
 
 shiftTo :: String -> X ()
 shiftTo = windows . W.shift
-------------------------------------------------------------------------
--- Keys:
-removedKeys =
-  [ "M-q" -- restart
-  , "M-S-q" -- quit
-  , "M-S-c" -- close window
-  , "M-<Tab>" -- cycle window forward
-  , "M-S-<Tab>" -- cycle window backward
-  , "M-S-/" --help command
-  , "M-p" -- dmenu
-  , "M-S-p" -- dmenu
-  , "M-S-w" , "M-S-e" , "M-S-r" -- move window to monitor
-  , "M-w" , "M-e" , "M-r" -- switch to monitor
-  , "M-b" --toggle struts
-  ] ++ ["M-" ++ k | k <- map show [0..9]] ++ ["M-S-" ++ k | k <- map show [0..9]]
-
 
 ------------------------------------------------------------------------
 -- Startup:
@@ -208,12 +197,11 @@ myConfig = xfceConfig
   , workspaces = myTopics
   , modMask     = mod4Mask
   , borderWidth = 0
+  , keys = myKeys
   , layoutHook = desktopLayoutModifiers myLayoutHook
   , manageHook = manageHook xfceConfig <+> myManageHook <+> namedScratchpadManageHook myScratchPads
   , startupHook = startupHook xfceConfig <+> myStartupHook
   , logHook = myLogHook
   }
 
-main = xmonad $ myConfig
-  `removeKeysP` removedKeys
-  `additionalKeysP` myKeys
+main = xmonad myConfig
