@@ -143,7 +143,7 @@ myKeys =
   -- chat
   , ("M-s", goToChatWorkspace)
   -- extra
-  , ("M-S-x", switchTopic myTopicConfig "extra")
+  , ("M-1", switchTopic myTopicConfig "extra")
   , ("M-a", currentTopicAction myTopicConfig)
 
   -- workspace manipulation
