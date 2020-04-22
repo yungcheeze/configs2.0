@@ -132,6 +132,7 @@ myKeys =
   ,("M-<Return>", spawn myTerminal)
   , ("M-x", spawn myLauncher)
   , ("M-;", namedScratchpadAction myScratchPads "terminal")
+  , ("M-C-<F8>", spawn "pavucontrol")
 
   --workspaces
   -- browser
