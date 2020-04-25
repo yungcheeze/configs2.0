@@ -138,16 +138,16 @@ myKeys conf =
 
   --workspaces
   -- browser
-  , ("M-c", goTo "browser")
-  , ("M-C-m M-c", shiftTo "browser")
-  , ("M-S-c", spawn myBrowser)
+  , ("M-w", goTo "browser")
+  , ("M-C-m M-w", shiftTo "browser")
+  , ("M-S-w", spawn myBrowser)
   -- editor
   , ("M-e", goTo "editor")
   , ("M-C-m M-e", shiftTo "editor")
   , ("M-S-e", spawn myEditor)
   -- chat
-  , ("M-s", goTo "chat")
-  , ("M-C-m M-s", shiftTo "chat")
+  , ("M-c", goTo "chat")
+  , ("M-C-m M-c", shiftTo "chat")
   -- extra
   , ("M-1", goTo "extra")
   , ("M-C-m M-1", shiftTo "extra")
