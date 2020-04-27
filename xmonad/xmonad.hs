@@ -162,7 +162,7 @@ myKeys conf =
   , ("M-#", workspaceCommands >>= runCommand)
 
   -- window maninpulation
-  , ("M-S-q", kill)
+  , ("M-C-x", kill)
   , ("M-C-l", spawn "i3lock-fancy-rapid 5 1")
   , ("M-C-f", toggleFullScreen)
   , ("M-C-b", toggleSmartSpacing)
