@@ -8,7 +8,30 @@ export SUDO_EDITOR="$EDITOR"
 export ALTERNATE_EDITOR=""
 export VISUAL="emacsclient --create-frame --socket-name=gui"
 alias e="$VISUAL"                      # used to be "emacs -nw"
-alias et="$EDITOR"                      # used to be "emacs -nw"
+alias et=_emacs_terminal
+
+function _emacsfun
+{
+    $EDITOR "$@"
+}
+function _emacs_terminal
+{
+    # If the argument is - then write stdin to a tempfile and open the
+    # tempfile.
+    if [[ $# -ge 1 ]] && [[ "$1" == - ]]; then
+        tempfile="$(mktemp /tmp/emacs-stdin-$USER.XXXXXXX -u)"
+        mkfifo -m 600 "$tempfile"
+        cat - > "$tempfile" &
+        _emacsfun --eval "(let ((buffer (generate-new-buffer \"*stdin*\")))
+                             (set-window-buffer nil buffer)
+                             (with-current-buffer buffer
+                               (insert-file \"$tempfile\")))"
+        rm -f "$tempfile"
+    else
+      _emacsfun "$@"
+    fi
+}
+
 
 # configure less (https://www.topbug.net/blog/2016/09/27/make-gnu-less-more-powerful/)
 export LESS='-Q --ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --tabs=4 --no-init --window=-4'
@@ -35,6 +58,7 @@ if [[ $- =~ .*i.* ]]; then bind '"\er": "\C-a hstr -- \C-j"'; fi
 
 source /home/ucizi/.config/broot/launcher/bash/br
 
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
