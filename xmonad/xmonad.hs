@@ -154,6 +154,8 @@ myKeys conf =
   -- music
   , ("M-2", goTo "music")
   , ("M-C-m M-2", shiftTo "music")
+  , ("M-s", goTo "music")
+  , ("M-C-m M-s", shiftTo "music")
   -- workspace action
   , ("M-a", currentTopicAction myTopicConfig)
   
