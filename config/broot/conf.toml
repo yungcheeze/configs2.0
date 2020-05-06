@@ -42,6 +42,10 @@ key = "ctrl-c"
 execution = ":quit"
 
 [[verbs]]
+key = "ctrl-g"
+execution = ":quit"
+
+[[verbs]]
 invocation = "create {subpath}"
 execution = "$EDITOR {directory}/{subpath}"
 
@@ -99,12 +103,21 @@ key = "ctrl-h"
 execution = ":back"
 
 [[verbs]]
-key = "ctrl-g"
-execution = ":back"
-
-[[verbs]]
 key = "alt-p"
 execution = ":up_tree"
+
+[[verbs]]
+key = "alt-u"
+execution = ":up_tree"
+
+
+[[verbs]]
+key = "alt-f"
+execution = ":toggle_files"
+
+[[verbs]]
+key = "alt-."
+execution = ":toggle_hidden"
 
 # If you develop using git, you might like to often switch
 # to the "git status" filter:
