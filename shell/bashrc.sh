@@ -58,15 +58,9 @@ if [[ $- =~ .*i.* ]]; then bind '"\er": "\C-a hstr -- \C-j"'; fi
 
 source /home/ucizi/.config/broot/launcher/bash/br
 
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-
 if [ "$TERM" != "linux" ]; then
     source ~/configs2.0/pureline/pureline ~/configs2.0/pureline.conf
 fi
-
 
 source ~/configs2.0/commacd.sh
 
