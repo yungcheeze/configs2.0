@@ -57,8 +57,9 @@ if [[ $- =~ .*i.* ]]; then bind '"\er": "\C-a hstr -- \C-j"'; fi
 
 
 source /home/ucizi/.config/broot/launcher/bash/br
-alias brh="br ~"
-alias brf="br --only-folders"
+alias brz="br --sizes"
+alias f="br --only-folders"
+alias fh="br --only-folders ~"
 
 if [ "$TERM" != "linux" ]; then
     source ~/configs2.0/pureline/pureline ~/configs2.0/pureline.conf
