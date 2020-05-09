@@ -67,7 +67,7 @@ myTopicConfig = def
 
 chatTopicAction = do
   spawn "teams"
-  spawn (myBrowser ++ "https://outlook.office365.com")
+  spawn "chromium --app=https://outlook.office365.com"
 
 goTo :: String -> X ()
 goTo = switchTopic myTopicConfig
