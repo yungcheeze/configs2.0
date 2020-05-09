@@ -152,8 +152,6 @@ myKeys conf =
   , ("M-1", goTo "extra")
   , ("M-C-m M-1", shiftTo "extra")
   -- music
-  , ("M-2", goTo "music")
-  , ("M-C-m M-2", shiftTo "music")
   , ("M-s", goTo "music")
   , ("M-C-m M-s", shiftTo "music")
   -- workspace action
