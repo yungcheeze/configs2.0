@@ -39,7 +39,7 @@ import XMonad.Config.Xfce (xfceConfig, desktopLayoutModifiers)
 ------------------------------------------------------------------------
 -- General:
 myTerminal = "kitty"
-myBrowser = "chromium"
+myBrowser = "surf"
 myConfigsDir = "/home/ucizi/configs2.0"
 myEditor = myConfigsDir ++ "/xmonad/visual-editor.sh"
 myLauncher = myConfigsDir ++ "/scripts/dmenu_recency"
@@ -67,7 +67,7 @@ myTopicConfig = def
 
 chatTopicAction = do
   spawn "teams"
-  spawn "chromium --app=https://outlook.office365.com"
+  spawn (myBrowser ++ "https://outlook.office365.com")
 
 goTo :: String -> X ()
 goTo = switchTopic myTopicConfig
