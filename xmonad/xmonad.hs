@@ -29,7 +29,7 @@ import XMonad.Hooks.EwmhDesktops (ewmhDesktopsStartup, ewmhDesktopsEventHook, ew
 
 -- Actions
 import XMonad.Actions.CycleWS (nextScreen, shiftNextScreen)
-import XMonad.Actions.WindowBringer (gotoMenu)
+import XMonad.Actions.WindowBringer (gotoMenu, gotoMenuConfig, WindowBringerConfig(..))
 import XMonad.Actions.TopicSpace
 import XMonad.Actions.DynamicWorkspaceGroups
 import XMonad.Actions.Commands (workspaceCommands, runCommand)
@@ -160,7 +160,7 @@ myKeys conf =
   , ("M-a", currentTopicAction myTopicConfig)
   
   -- workspace manipulation
-  , ("M-'", gotoMenu)
+  , ("M-'", gotoMenuConfig def {menuArgs = ["-i", "-l", "10"]})
   , ("M-#", workspaceCommands >>= runCommand)
 
   -- window maninpulation
