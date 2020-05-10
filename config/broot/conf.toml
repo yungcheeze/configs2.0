@@ -42,10 +42,6 @@ key = "ctrl-c"
 execution = ":quit"
 
 [[verbs]]
-key = "ctrl-g"
-execution = ":quit"
-
-[[verbs]]
 invocation = "create {subpath}"
 execution = "$EDITOR {directory}/{subpath}"
 
@@ -100,6 +96,10 @@ execution = ":focus"
 
 [[verbs]]
 key = "ctrl-h"
+execution = ":back"
+
+[[verbs]]
+key = "ctrl-g"
 execution = ":back"
 
 [[verbs]]
