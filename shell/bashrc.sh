@@ -58,6 +58,7 @@ if [[ $- =~ .*i.* ]]; then bind '"\er": "\C-a hstr -- \C-j"'; fi
 
 source /home/ucizi/.config/broot/launcher/bash/br
 alias brz="br --sizes"
+alias brh="br ~"
 alias f="br --only-folders"
 alias fh="br --only-folders ~"
 
