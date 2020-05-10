@@ -32,7 +32,7 @@ function _emacs_terminal
     fi
 }
 
-
+export PAGER="less"
 # configure less (https://www.topbug.net/blog/2016/09/27/make-gnu-less-more-powerful/)
 export LESS='-Q --ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --tabs=4 --no-init --window=-4'
 export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
