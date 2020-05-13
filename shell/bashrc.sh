@@ -68,6 +68,12 @@ fi
 
 source ~/configs2.0/commacd.sh
 
+fasd_cache="$HOME/.fasd-init-bash"
+if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+  fasd --init bash-hook >| "$fasd_cache"
+fi
+source "$fasd_cache"
+
 fasd_cd() {
   if [ $# -le 1 ]; then
     fasd "$@"
