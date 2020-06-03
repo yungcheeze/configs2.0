@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 DEV_TEMPLATE=~/configs/scripts/Pipfile.dev
 DESTINATION=$(pwd)/Pipfile

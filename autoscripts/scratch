@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 SCRATCH_FOLDER="${HOME}/scratch"

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 read OUT_TEXT
 toilet -f bigmono12 "$OUT_TEXT" | lolcat
