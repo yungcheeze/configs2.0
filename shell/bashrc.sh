@@ -6,12 +6,13 @@ alias to-clip="xclip -selection c"
 export MYVIMRC="$HOME/.config/nvim/init.vim"
 alias vimrc="vm $MYVIMRC"
 export EDITOR="vim"
+export VISUAL="vim"
 
 export EMACS_TTY="emacsclient --tty --socket-name=terminal"
 export SUDO_EDITOR="$EMACS_TTY"
 export ALTERNATE_EDITOR=""
-export VISUAL="emacsclient --create-frame --socket-name=gui"
-alias e="$VISUAL"                      # used to be "emacs -nw"
+export EMACS_XORG="emacsclient --create-frame --socket-name=gui"
+alias e="$EMACS_XORG"                      # used to be "emacs -nw"
 alias et=_emacs_terminal
 
 function _emacsfun
@@ -90,4 +91,7 @@ fasd_cd() {
     [ -d "$_fasd_ret" ] && cd "$_fasd_ret" || printf %s\n "$_fasd_ret"
   fi
 }
+alias z="fasd_cd -id"
 alias fcd="fasd_cd -id"
+
+alias ..="cd .."
