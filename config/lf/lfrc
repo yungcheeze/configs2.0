@@ -43,7 +43,7 @@ map S !$SHELL
 map x $$f
 map X !$f
 
-map e $ IFS=' '; $EDITOR $f
+map e $ $EDITOR $f
 
 # dedicated keys for file opener actions
 map o &mimeopen $f
@@ -147,7 +147,7 @@ map gf push :fasd_cd<space>
 cmd open ${{
 
     case $(file --mime-type $f -b) in
-        text/*) IFS=' '; $EDITOR $fx;;
+        text/*) $EDITOR $fx;;
         *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
     esac
 }}
