@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if poetry env --list > /dev/null; then
+    poetry shell
+elif pipenv --venv > /dev/null; then
+    pipenv shell
+fi
