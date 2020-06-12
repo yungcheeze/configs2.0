@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cd ~/Software/surf
+./surf-build.sh
