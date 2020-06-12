@@ -3,8 +3,12 @@ bind 'TAB:menu-complete'
 
 alias to-clip="xclip -selection c"
 
-export EDITOR="emacsclient --tty --socket-name=terminal"
-export SUDO_EDITOR="$EDITOR"
+export MYVIMRC="$HOME/.config/nvim/init.vim"
+alias vimrc="vm $MYVIMRC"
+export EDITOR="vim"
+
+export EMACS_CMD="emacsclient --tty --socket-name=terminal"
+export SUDO_EDITOR="$EMACS_CMD"
 export ALTERNATE_EDITOR=""
 export VISUAL="emacsclient --create-frame --socket-name=gui"
 alias e="$VISUAL"                      # used to be "emacs -nw"
@@ -12,7 +16,7 @@ alias et=_emacs_terminal
 
 function _emacsfun
 {
-    $EDITOR "$@"
+    $EMACS_CMD "$@"
 }
 function _emacs_terminal
 {
