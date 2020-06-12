@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+input="${1:--}"
+cat "$input" | grep -e . | grep -v -e '^\-i' -e '^#'

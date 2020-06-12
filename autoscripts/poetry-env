@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+command="$1"
+version="$2"
+
+pyenv local "$version"
+case "$command" in
+    use)
+        poetry env use "$version"
+        ;;
+    remove)
+        poetry env remove "$version"
+        ;;
+esac
+pyenv local --unset
