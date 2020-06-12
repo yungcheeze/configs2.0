@@ -4,7 +4,7 @@
 TMP_FILE=$(mktemp)
 cat > $TMP_FILE
 
-$EDITOR --eval "(let ((buffer (generate-new-buffer \"*temp*\")))
+$EMACS_TTY --eval "(let ((buffer (generate-new-buffer \"*temp*\")))
       (set-window-buffer nil buffer)
       (with-current-buffer buffer
         (insert-file \"$TMP_FILE\")))"

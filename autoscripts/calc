@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-$EDITOR -e "(full-calc)"
+$EMACS_TTY -e "(full-calc)"
