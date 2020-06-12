@@ -7,8 +7,8 @@ export MYVIMRC="$HOME/.config/nvim/init.vim"
 alias vimrc="vm $MYVIMRC"
 export EDITOR="vim"
 
-export EMACS_CMD="emacsclient --tty --socket-name=terminal"
-export SUDO_EDITOR="$EMACS_CMD"
+export EMACS_TTY="emacsclient --tty --socket-name=terminal"
+export SUDO_EDITOR="$EMACS_TTY"
 export ALTERNATE_EDITOR=""
 export VISUAL="emacsclient --create-frame --socket-name=gui"
 alias e="$VISUAL"                      # used to be "emacs -nw"
@@ -16,7 +16,7 @@ alias et=_emacs_terminal
 
 function _emacsfun
 {
-    $EMACS_CMD "$@"
+    $EMACS_TTY "$@"
 }
 function _emacs_terminal
 {
