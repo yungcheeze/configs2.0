@@ -38,6 +38,11 @@ shortcut = "e"
 execution = "$EDITOR {file}"
 
 [[verbs]]
+invocation = "vim"
+shortcut = "v"
+execution = "vim {file}"
+
+[[verbs]]
 key = "ctrl-c"
 execution = ":quit"
 
