@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+width=${1:-80}
+toilet -w "$width" -f pagga "OUT OF OFFICE" | lolcat
+sleep infinity
