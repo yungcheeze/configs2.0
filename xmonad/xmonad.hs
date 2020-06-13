@@ -41,7 +41,7 @@ import XMonad.Config.Xfce (xfceConfig, desktopLayoutModifiers)
 myTerminal = "kitty"
 myBrowser = "surf"
 myConfigsDir = "/home/ucizi/configs2.0"
-myEditor = myConfigsDir ++ "/xmonad/visual-editor.sh"
+myEditor = "kitty tmux new-session -A -s editor"
 myLauncher = myConfigsDir ++ "/scripts/dmenu_recency"
 myStatusBar = myConfigsDir ++ "/config/polybar/launch.sh &"
 myWallpaperCmd = "echo 'no-wallpaper'"
