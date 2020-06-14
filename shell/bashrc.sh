@@ -83,15 +83,17 @@ fi
 source "$fasd_cache"
 
 fasd_cd() {
-  if [ $# -le 1 ]; then
-    fasd "$@"
-  else
-    local _fasd_ret="$(fasd -e 'printf %s' "$@")"
-    [ -z "$_fasd_ret" ] && return
-    [ -d "$_fasd_ret" ] && cd "$_fasd_ret" || printf %s\n "$_fasd_ret"
-  fi
+        local -r matches="$(fasd -ld "$@")"
+        local -r line_count=$(echo "$matches" | wc -l)
+
+        if [[ "$line_count" == 1 ]]; then
+                cd "$matches" 
+        else
+                cd "$(echo "$matches" | fzf --height 40% --reverse)"
+        fi        
 }
-alias z="fasd_cd -id"
-alias fcd="fasd_cd -id"
+
+alias z="fasd_cd"
+alias fcd="fasd_cd"
 
 alias ..="cd .."
