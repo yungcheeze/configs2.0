@@ -97,3 +97,8 @@ alias z="fasd_cd"
 alias fcd="fasd_cd"
 
 alias ..="cd .."
+
+switch_project() {
+        cd $(cat ~/.projects | fzf --height 80% --reverse)
+}
+alias zp="switch_project"
