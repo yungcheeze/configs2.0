@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+DIR="$(cd "$1"; pwd)"
+echo "$DIR" >> ~/.projects
+clean-projects-file

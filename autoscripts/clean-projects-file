@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+projects="$(cat ~/.projects)"
+echo "$projects" | sort -u > ~/.projects
