@@ -12,7 +12,7 @@ export EMACS_TTY="emacsclient --tty --socket-name=terminal"
 export SUDO_EDITOR="$EMACS_TTY"
 export ALTERNATE_EDITOR=""
 export EMACS_XORG="emacsclient --create-frame --socket-name=gui"
-alias e="$EMACS_XORG"                      # used to be "emacs -nw"
+alias em="$EMACS_XORG"                      # used to be "emacs -nw"
 alias et=_emacs_terminal
 
 function _emacsfun
@@ -95,6 +95,21 @@ fasd_cd() {
 
 alias z="fasd_cd"
 alias fcd="fasd_cd"
+
+fasd_edit() {
+        local -r matches="$(fasd -lf "$@")"
+        local -r line_count=$(echo "$matches" | wc -l)
+        echo "line count: $line_count"
+
+        if [[ "$line_count" == 1 ]]; then
+            $EDITOR "$matches" 
+        else
+            local -r selection="$(echo "$matches" | fzf --height 40% --reverse)"
+            [[ -z "$selection" ]] || vim "$selection"
+        fi        
+}
+
+alias e="fasd_edit"
 
 alias ..="cd .."
 
