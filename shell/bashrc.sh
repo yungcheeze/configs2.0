@@ -3,6 +3,8 @@ bind 'TAB:menu-complete'
 
 alias to-clip="xclip -selection c"
 
+export CONFIGS_DIR="$HOME/configs2.0"
+
 export MYVIMRC="$HOME/.config/nvim/init.vim"
 alias vimrc="vm $MYVIMRC"
 export EDITOR="vim"
@@ -65,9 +67,14 @@ if [[ $- =~ .*i.* ]]; then bind '"\er": "\C-a hstr -- \C-j"'; fi
 
 
 source /home/ucizi/.config/broot/launcher/bash/br
+function br-cd {
+    br --only-folders --cmd "$1 :cd"
+}
 alias brz="br --sizes"
 alias brh="br ~"
 alias f="br --only-folders"
+alias fz="br-cd"
+alias ff="br"
 alias fh="br --only-folders ~"
 
 if [ "$TERM" != "linux" ]; then
