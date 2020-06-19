@@ -105,10 +105,9 @@ fasd_edit() {
             $EDITOR "$matches" 
         else
             local -r selection="$(echo "$matches" | fzf --height 40% --reverse)"
-            [[ -z "$selection" ]] || vim "$selection"
+            [[ -z "$selection" ]] || $EDITOR "$selection"
         fi        
 }
-
 alias e="fasd_edit"
 
 alias ..="cd .."
