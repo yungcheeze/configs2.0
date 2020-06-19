@@ -110,6 +110,22 @@ fasd_edit() {
 }
 alias e="fasd_edit"
 
+locate_edit() {
+        local -r matches="$(locate "$@")"
+        local -r line_count=$(echo "$matches" | wc -l)
+        echo "line count: $line_count"
+
+        if [[ "$line_count" == 1 ]]; then
+            $EDITOR "$matches" 
+        else
+            local -r selection="$(echo "$matches" | fzf --height 40% --reverse)"
+            [[ -z "$selection" ]] || $EDITOR "$selection"
+        fi        
+}
+alias locate-e="locate_edit"
+
+
+
 alias ..="cd .."
 
 switch_project() {
