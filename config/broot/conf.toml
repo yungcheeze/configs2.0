@@ -43,6 +43,11 @@ shortcut = "v"
 execution = "vim {file}"
 
 [[verbs]]
+invocation = "emacs"
+shortcut = "et"
+execution = "et {file}"
+
+[[verbs]]
 key = "ctrl-c"
 execution = ":quit"
 
