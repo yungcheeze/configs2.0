@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # commacd - a faster way to move around (Bash 3+/Zsh).
 # https://github.com/shyiko/commacd
 #
@@ -150,7 +152,7 @@ _commacd_forward() {
     # https://github.com/shyiko/commacd/issues/12
     trap 'trap - SIGINT; stty '"$(stty -g)" SIGINT
 
-    dir=$(_commacd_choose_match "${dir[@]}")
+    dir=$(printf '%s\n' "${dir[@]}" | fzf)
 
     # make sure trap is removed regardless of whether read -e ... was
     # interrupted or not
@@ -275,7 +277,7 @@ _commacd_backward_forward() {
     return
   fi
   if [[ ${#dir[@]} -gt 1 ]]; then
-    dir=$(_commacd_choose_match "${dir[@]}")
+    dir=$(printf '%s\n' "${dir[@]}" | fzf)
   fi
   _command_cd "$dir"
 }
