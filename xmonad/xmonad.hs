@@ -132,7 +132,7 @@ myKeys conf =
     -- spawning commands
   ,("M-<Return>", spawn myTerminal)
   , ("M-x", spawn myLauncher)
-  , ("M-S-2", spawn "clipmenu")
+  , ("M-2", spawn "clipmenu")
   , ("M-;", namedScratchpadAction myScratchPads "terminal")
   , ("M-C-<F8>", spawn "pavucontrol")
   , ("M-S-<F8>", spawn "pavucontrol")
