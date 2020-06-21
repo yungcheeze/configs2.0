@@ -7,8 +7,8 @@ export CONFIGS_DIR="$HOME/configs2.0"
 
 export MYVIMRC="$HOME/.config/nvim/init.vim"
 alias vimrc="vm $MYVIMRC"
-export EDITOR="vim"
-export VISUAL="vim"
+export EDITOR="kak"
+export VISUAL="kak"
 
 export EMACS_TTY="emacsclient --tty --socket-name=terminal"
 export SUDO_EDITOR="$EMACS_TTY"
