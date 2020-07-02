@@ -1,0 +1,13 @@
+#!/bin/sh
+read og_path
+cd "$og_path"
+git_root=$(git rev-parse --show-toplevel)
+
+if [[ -n "$git_root" ]]; then
+  out_path="$git_root"
+  dir_depth="$1"
+  echo "$(echo $out_path | rev | cut -d'/' -f-"$dir_depth" | rev)"
+else
+  out_path="$og_path"
+  echo "$out_path"
+fi
