@@ -44,6 +44,7 @@ map x $$f
 map X !$f
 
 map e $ $EDITOR $f
+map i $bat --paging=always $f
 
 # dedicated keys for file opener actions
 map o &mimeopen $f
