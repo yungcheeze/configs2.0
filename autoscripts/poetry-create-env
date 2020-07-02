@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+version="$1"
+pyenv local "$1"
+poetry env use "$version"
+poetry install
+pyenv local --unset
+
