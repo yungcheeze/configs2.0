@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+env_path="$(pipenv --venv)"
+
+echo "PATH=$env_path/bin"':$PATH'

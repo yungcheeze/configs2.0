@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+env_path="$(poetry env list --full-path | grep Activated | sed 's/ (Activated)//')"
+git_root="$(git-root)"
+
+echo "PATH=$env_path/bin"':$PATH'
