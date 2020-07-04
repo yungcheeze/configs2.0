@@ -136,6 +136,8 @@ myKeys conf =
   , ("M-;", namedScratchpadAction myScratchPads "terminal")
   , ("M-C-<F8>", spawn "pavucontrol")
   , ("M-S-<F8>", spawn "pavucontrol")
+  , ("M-=", spawn "btmenu")
+  , ("M--", spawn "btmenu -d")
 
   --workspaces
   -- browser
@@ -164,7 +166,7 @@ myKeys conf =
 
   -- window maninpulation
   , ("M-C-x", kill)
-  , ("M-C-l", spawn "i3lock-fancy-rapid 5 1")
+  -- , ("M-C-l", spawn "i3lock-fancy-rapid 5 1")
   , ("M-C-f", toggleFullScreen)
   , ("M-C-b", toggleSmartSpacing)
   , ("M-<Space>", sendMessage NextLayout)
