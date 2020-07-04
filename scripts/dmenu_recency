@@ -3,7 +3,7 @@
 # sort dmenu commands by frequency and recency
 # stripped down version
 # forked from https://github.com/manjaro/packages-community/blob/master/dmenu-manjaro/dmenu_recency
-DMENU_OPTIONS="-l 3"
+DMENU_OPTIONS=""
 dmenu_cmd="dmenu $DMENU_OPTIONS"
 max_recent=199 # Number of recent commands to track
 
